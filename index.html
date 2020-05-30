@@ -1,0 +1,62 @@
+<DOCTYPE html>
+<html>
+<head>
+	<title>Agis Game</title>
+	<meta charset="UTF-8"></meta>
+	<link rel="stylesheet" type="text/css" href="css/root.css">
+</head>
+<body>
+<div id="content">
+<center>
+<br />
+<div id="title">Agis Game</div>
+<br />
+<div id="pixiwindow">
+<!--
+	<div class="agi sprite right_1"></div>
+	<div class="agi sprite right_2"></div>
+	<div class="agi sprite right_3"></div>
+
+	<div class="agi sprite left_1"></div>
+	<div class="agi sprite left_2"></div>
+	<div class="agi sprite left_3"></div>
+
+	<div class="agi sprite down_1"></div>
+	<div class="agi sprite down_2"></div>
+	<div class="agi sprite down_3"></div>
+
+	<div class="agi sprite up 1"></div>
+	<div class="agi sprite up 2"></div>
+	<div class="agi sprite up_3"></div>
+-->
+</div>
+</center>
+</div>
+
+<script src="extern/ben0biJSLoader.js"></script>
+<script>
+	var g_game=0;
+	function log(txt) {console.log(txt);}
+	function mainloopFrame(deltatime)
+	{
+		g_game.UPDATE(deltatime);
+		//console.log("TIC: "+deltatime);
+	}
+	
+	function jsLoadDone() 
+	{
+		log("[ OK ] All JS Files Loaded.");
+		log("--> Init game");
+		g_game=new aGame();
+		g_game.INIT();
+		log("--> initializing game engine..");
+		var done=false;
+		var deltatime =0.0;
+		g_gameengine.INIT('#pixiwindow',mainloopFrame);
+	}
+	ben0biJSLoader.recursiveLoad("jsconfig.json",jsLoadDone)
+	
+</script>
+
+</body>
+</html>

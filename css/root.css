@@ -1,0 +1,89 @@
+body, html
+{
+	background-image: url('../assets/bg.jpg');
+	background-repeat: repeat;
+	color: #FFFFFA;
+	padding: 0px;
+	margin: 0px;
+}
+
+#title
+{
+	background-color: #FF3300;
+	color: #FFFFFA;
+	width: 200px;
+	border-radius: 10px;
+	border: 4px dotted #FFFFFA;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 20pt;
+	font-weight: bolder;
+	font-family: monospace;
+}
+
+#content
+{
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+#pixiwindow
+{
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 640px;
+	height: 480px;
+	background-color: #00AA00;
+	
+	border: 3px solid #003300;
+	border-radius: 5px;
+}
+
+.sprite
+{
+	position: absolute;
+	overflow: hidden;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+	width: 64px;
+	height: 64px;
+}
+
+/*** Ein Agi */
+.agi 
+{	
+	background-image: url('../assets/spritesheet_agi.png');
+	background-size: 400% auto;
+/*	border: 1px solid #FF00FF;	*/
+}
+
+/*** Rechtwärtiges Sprite für 16x16 zu 64x64 */
+
+.right_1 {background-position: -8 -8;}
+.right_2 {background-position: -76 -8;}
+.right_3 {background-position: -152 -8;}
+
+/***** Linkwärtiges Sprite für 16x16 zu 64x64 */
+
+.left_1 {background-position: -8 -80;}
+.left_2 {background-position: -76 -80;}
+.left_3 {background-position: -152 -80;}
+
+/*** Abwärtiges Sprite für 16x16 zu 64x64 */
+
+.down_1{background-position: -8 -152;}
+.down_2 {background-position: -76 -152;}
+.down_3 {background-position: -152 -152;}
+
+
+/*** Aufwärtiges Sprite für 16x16 zu 64x64 */
+
+.up_1 {background-position: -8 -224;}
+.up_2 {background-position: -76 -224;}
+.up_3 {background-position: -152 -224;}
+
