@@ -20,6 +20,20 @@ var log = function(txt)
 	console.log(txt);
 }
 
+// https://keycode.info/
+// standard key codes.
+var KEY_LEFT=37;
+var KEY_RIGHT=39;
+var KEY_UP=38;
+var KEY_DOWN=40;
+var KEY_SPACE=32;
+
+var KEY_W=87;
+var KEY_A=65;
+var KEY_S=83;
+var KEY_D=68;
+
+
 // the game engine GE.
 var GE = function() 
 {
@@ -34,6 +48,12 @@ var GE = function()
 	this.getActualDisplayID=function() {return m_actualDisplayID;}
 	var m_actualDisplayBuffer = 0;
 	
+	var ma_keyCode=[]
+	this.getKeyDown=function(code)
+	{
+		return ma_keyCode[code];
+	}
+	
 	this.getDeltaTime = function() {return m_deltatime;}
 	this.INIT = function(mainscreenID,updatefunc = null)
 	{
@@ -43,11 +63,39 @@ var GE = function()
 		log("[ OK ] Game Engine GE initialized.")
 		
 		// add the two buffer displays        absolute       100         100
-		var html='<div id="GEdiBuf0" style="position:absolute; width:100%; height:100%; top:0px; left:0px; border: 1px solid #FF00FF;"></div>';
-		html+='<div id="GEdiBuf1" style="position:absolute; width:100%; height:100%;  top:0px; left:0px; border: 1px solid #FF0000;"></div>';
+		var html='<div id="GEdiBuf0" style="position:absolute; width:100%; height:100%; top:0px; left:0px;"></div>';
+		html+='<div id="GEdiBuf1" style="position:absolute; width:100%; height:100%;  top:0px; left:0px;"></div>';
 		$(m_mainDisplayID).append(html);
-	}
 		
+		// init keycodes list
+		ma_keyCode=[]
+		for(var i=0;i<255;i++)
+		{
+			var c=0;
+			ma_keyCode.push(c);
+		}
+		
+		// get key events.
+		$("body").on('keydown', __keydownfunc)
+		$("body").on('keyup', __keyupfunc)
+	}
+	
+	// the key down event handler.
+	var __keydownfunc=function(evt)
+	{
+		var c = evt.keyCode;
+		log("keydown "+c);
+		ma_keyCode[c]=1
+	}
+	
+	// the key up event handler.
+	var __keyupfunc=function(evt)
+	{
+		var c = evt.keyCode;
+		log("keyup "+c);
+		ma_keyCode[c]=0
+	}
+
 	this.RENDER = function()
 	{
 		// show the actual display.
@@ -65,10 +113,7 @@ var GE = function()
 	}
 	
 	// clear the actual display buffer.
-	this.clearActualDisplay = function()
-	{
-		$(m_actualDisplayID).html("");
-	}
+	this.clearActualDisplay = function() {$(m_actualDisplayID).html("");}
 	
 	this.UPDATE = function()
 	{

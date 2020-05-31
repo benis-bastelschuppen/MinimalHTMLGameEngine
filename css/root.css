@@ -44,6 +44,17 @@ body, html
 	border-radius: 5px;
 }
 
+/* set borders here to view the different buffers. */
+#GEdiBuf0
+{
+	/* border: 1px solid #FF0000; */
+}
+
+#GEdiBuf1
+{
+	/* border: 1px solid #0000FF; */
+}
+
 .sprite
 {
 	position: absolute;
