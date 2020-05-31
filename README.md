@@ -1,6 +1,8 @@
 # MinimalHTMLGameEngine
 A minimal setup for a game engine: deltatime and doublebuffer
 
+And also in the newest version: getting key events and move that character!
+
 With that you have a nice javascript deltatime function and a
 double buffered sprite rendered on only divs, not even using canvas or
 other "advanced" stuff. Ok, it uses jQuery but I see that as a standard
